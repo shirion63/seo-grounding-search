@@ -1,0 +1,14 @@
+# Secrets : ne jamais committer une cle API
+.streamlit/secrets.toml
+*.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Exports generes localement
+*.ndjson
+fanout-*.csv
+fanout-*.md
