@@ -4,15 +4,15 @@
 $ErrorActionPreference = "Stop"
 
 # Environnement Python, par ordre de preference :
-# venv local du projet, puis venv du cabinet, puis python du systeme.
+# venv local du projet, venv designe par SEO_GROUNDING_PYTHON, puis python du systeme.
 $candidats = @(
     (Join-Path $PSScriptRoot ".venv\Scripts\python.exe"),
-    "C:\Users\BenjaminGningue\Documents\IA & SEO\seo_cabinet_env\gsc_api\.venv\Scripts\python.exe"
+    $env:SEO_GROUNDING_PYTHON
 )
 
 $python = $null
 foreach ($c in $candidats) {
-    if (Test-Path $c) { $python = $c; break }
+    if ($c -and (Test-Path $c)) { $python = $c; break }
 }
 if (-not $python) {
     $cmd = Get-Command python -ErrorAction SilentlyContinue

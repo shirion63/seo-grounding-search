@@ -66,6 +66,8 @@ L'interface s'ouvre sur `http://localhost:8501`.
 
 En local, une variable d'environnement `GEMINI_API_KEY` évite d'avoir à saisir la clé à chaque démarrage. Le champ de saisie n'apparaît que si cette variable est absente.
 
+`lancer.ps1` cherche un interpréteur Python dans cet ordre : un `.venv` à la racine du projet, puis le chemin donné par la variable `SEO_GROUNDING_PYTHON`, puis le `python` du système.
+
 ## Déploiement
 
 L'application est prévue pour Streamlit Community Cloud, à partir de ce dépôt, en application privée sur invitation par email.
