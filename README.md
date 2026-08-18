@@ -82,6 +82,22 @@ Les modèles « pro » sont absents de la liste : leur quota gratuit est de zér
 
 Consommation mesurée : environ 5 000 tokens par génération complète, dont l'essentiel en raisonnement et en sortie.
 
+## Rester en gratuit, et le vérifier
+
+L'application ne peut pas basculer en facturé toute seule. Sans compte de facturation lié au projet Google Cloud, un dépassement de quota renvoie une erreur 429, jamais une facture. Le passage au payant suppose une activation explicite côté Google Cloud.
+
+Deux points de vigilance en revanche.
+
+**La liste de modèles va périmer.** Google retire régulièrement des modèles du service gratuit : `gemini-2.5-flash` et `gemini-2.5-pro` sont déjà refusés aux nouveaux comptes. Si un modèle se met à répondre en 404, rafraîchir la liste servie :
+
+```bash
+curl -s "https://generativelanguage.googleapis.com/v1beta/models?key=$GEMINI_API_KEY"   | python -c "import sys,json;[print(m['name']) for m in json.load(sys.stdin)['models'] if 'generateContent' in m.get('supportedGenerationMethods',[])]"
+```
+
+Puis mettre à jour `AVAILABLE_MODELS` dans `streamlit_app.py` en ne gardant que des modèles `flash`. Un modèle `pro` ajouté par mégarde échouerait en 429 pour tout le monde.
+
+**Le gratuit a un coût de confidentialité.** Il autorise Google à exploiter le contenu envoyé. Activer la facturation ferait disparaître les quotas et cette clause, mais ce n'est pas le choix retenu. Tant qu'on reste en gratuit, la règle sur le champ de contexte métier s'applique sans exception.
+
 ## Fichiers
 
 | Fichier | Rôle |
