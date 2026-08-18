@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
-"""Simulateur de fan-out de requêtes, bilingue français / anglais.
+"""SEO Grounding Search : simulateur de fan-out de requêtes, bilingue français / anglais.
 
-Portage local de Qforia (iPullRank), backend API Gemini avec sortie
-structurée contrainte par schéma.
+Backend API Gemini, sortie structurée contrainte par schéma.
+
+Inspiré des travaux d'iPullRank sur le fan-out de requêtes (Qforia), dont
+viennent le concept, la typologie des six transformations et la liste des
+formats de routage. Implémentation réécrite et étendue.
 
 Chaque utilisateur fournit sa propre clé API : le palier gratuit de Gemini
 est limité par projet, une clé partagée serait épuisée par le premier
@@ -55,7 +58,7 @@ CONSOLE_URL = "https://aistudio.google.com/apikey"
 # ---------------------------------------------------------------------------
 UI = {
     "fr": {
-        "title": "Simulateur de fan-out de requêtes",
+        "title": "SEO Grounding Search",
         "subtitle": (
             "Simule les requêtes synthétiques qu'un moteur génératif peut dériver d'une requête "
             "source, et le format de contenu vers lequel chacune serait routée."
@@ -142,7 +145,7 @@ UI = {
         "total": "{n} requêtes générées à partir de {s} requêtes sources.",
     },
     "en": {
-        "title": "Query fan-out simulator",
+        "title": "SEO Grounding Search",
         "subtitle": (
             "Simulates the synthetic queries a generative engine may derive from a source query, "
             "and the content format each one would be routed to."
@@ -376,7 +379,7 @@ def to_markdown(rows: list[dict], plans: list[dict], lang: str, meta: dict) -> b
 # ---------------------------------------------------------------------------
 
 st.set_page_config(
-    page_title="Fan-out de requêtes",
+    page_title="SEO Grounding Search",
     page_icon=":material/account_tree:",
     layout="wide",
 )

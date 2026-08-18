@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
-"""Prompts et taxonomies du simulateur de fan-out de requêtes (cabinet SEO Darwin).
+"""Prompts et taxonomies de SEO Grounding Search.
 
-Portage bilingue français / anglais de Qforia (iPullRank).
+Simulateur bilingue français / anglais de fan-out de requêtes.
+Inspiré des travaux d'iPullRank sur le sujet (Qforia).
 Le prompt est le coeur de l'outil : c'est ici qu'on itère, pas dans l'interface.
 
 Rappel de méthode : ce que produit le modèle, ce sont des requêtes *plausibles*
@@ -15,8 +16,8 @@ couverture éditoriale, pas à constater un fait.
 # ---------------------------------------------------------------------------
 
 # Formats de contenu vers lesquels le système de routage peut orienter la
-# récupération d'information. Identifiants conservés à l'identique de Qforia
-# pour rester comparable avec les exports de l'outil d'origine.
+# récupération d'information. Identifiants repris de la taxonomie d'iPullRank,
+# pour rester comparable avec les exports de leur outil.
 ALLOWED_FORMATS = [
     "web_article",
     "faq_page",
@@ -101,7 +102,7 @@ TYPE_LABELS = {
     },
 }
 
-# Modes de recherche simulés. Les seuils reprennent ceux de Qforia.
+# Modes de recherche simulés. Les seuils reprennent ceux retenus par iPullRank.
 MODES = {
     "overview": {"min_queries": 10, "fr": "Aperçu IA (simple)", "en": "AI Overview (simple)"},
     "aimode": {"min_queries": 20, "fr": "Mode IA (complexe)", "en": "AI Mode (complex)"},

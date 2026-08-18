@@ -1,8 +1,10 @@
-# Simulateur de fan-out de requêtes
+# SEO Grounding Search
 
 Simule les requêtes synthétiques qu'un moteur de recherche génératif peut dériver d'une requête source, et le format de contenu vers lequel chacune serait probablement routée. Interface bilingue français et anglais.
 
-Portage local de [Qforia](https://github.com/ipullrank-dev/qforia), conçu par iPullRank. Le concept, la typologie des six transformations et la liste des formats de routage viennent de leur travail. Cette implémentation est réécrite : prompts bilingues, sortie contrainte par schéma, traitement par lot, exports.
+Inspiré des travaux d'iPullRank sur le fan-out de requêtes, publiés sous le nom [Qforia](https://github.com/ipullrank-dev/qforia). Le concept, la typologie des six transformations et la liste des formats de routage viennent de leur recherche, et leur reviennent.
+
+Cette implémentation est réécrite et étendue : prompts français et anglais natifs, sortie contrainte par schéma côté API, champs marché et contexte métier, traitement par lot concurrent, exports CSV, NDJSON et Markdown, gestion multi-utilisateurs de la clé API.
 
 ## Ce que l'outil est, et ce qu'il n'est pas
 
